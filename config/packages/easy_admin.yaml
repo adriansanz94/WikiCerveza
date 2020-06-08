@@ -1,7 +1,7 @@
-#easy_admin:
-#    entities:
-#        # List the entity class name you want to manage
-#        - App\Entity\Categoria
-#        - App\Entity\Cerveza
-#        - App\Entity\Etiqueta
-#        - App\Entity\User
+easy_admin:
+    entities:
+        # List the entity class name you want to manage
+        - App\Entity\Categoria
+        - App\Entity\Cerveza
+        - App\Entity\Etiqueta
+        - App\Entity\User
