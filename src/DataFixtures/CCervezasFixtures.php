@@ -31,14 +31,14 @@ class CCervezasFixtures extends Fixture
             ];
         $oCat = [];
         //for ($indice = 0; $indice < $cats; $indice++)
+        $indice = 0;
         foreach ($cats as $cat){
-            $indice = 0;
             $c = new Categoria();
             $c->setNombre($cat);
             $c->setDescripcion($desc[$indice]);
             $manager->persist($c);
             $oCats[$cat]=$c;
-            $indice++;
+            $indice = $indice + 1;
         }
 
         //$etiq = new  Etiqueta();
