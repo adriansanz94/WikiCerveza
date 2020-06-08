@@ -1,0 +1,28 @@
+div:first-of-type{
+    text-align: center;
+    background-color:black;
+    height: 65px;
+}
+img{
+    padding:5px;
+div{
+    text-align: center;
+    background-color: black;
+}
+
+p{
+    width: 50%;
+    margin: 0 auto;
+    text-align: justify;
+    margin-top: 1em;
+}
+table{
+    margin:0 auto;
+    margin-top: 5em;
+}
+
+
+a{
+    text-align: center;
+    width: 50px;
+}

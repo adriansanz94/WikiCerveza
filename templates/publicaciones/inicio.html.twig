@@ -1,0 +1,47 @@
+{% extends 'base.html.twig'%}
+
+{% block title %}Bienvenido a WikiCervezas{% endblock %}
+{% block stylesheets %}
+    <link href="{{ asset('css/principal.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+
+
+{% block body %}
+    <div>
+        <img src="{{ asset('imagenes/logo.png') }}" alt="">
+
+    </div>
+
+    <p>breve descripcion de la empresa jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj<br>
+      jkdfhdhjfhjdfhjdhf  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium <br>
+        consequuntur culpa cumque dolores eveniet id in iusto magnam natus necessitatibus numquam <br>
+        obcaecati, omnis, optio quasi recusandae, reiciendis repudiandae ut voluptas?
+    </p>
+    <table border="1px solid">
+        <thead>
+        <th>Nombre</th>
+        <th>Descripcion</th>
+        <th>Graduación</th>
+        <th>Categoria</th>
+        <th>Etiqueta</th>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>Nombre</td>
+                <td>Descripcion</td>
+                <td>Graduacion</td>
+                <td>Categoria</td>
+                <td>Etiqueta</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+    <a href="{{ path('agregar') }}">Añadir cerveza</a>
+
+
+{% endblock %}
+
