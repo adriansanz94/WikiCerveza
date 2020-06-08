@@ -31,6 +31,19 @@
         <th>Etiqueta</th>
         </thead>
         <tbody>
+
+        {% for cerve in cerveza %}
+            {% for eti in etiqueta %}
+                <tr>
+                    <td>{{ cerve.nombre }}</td>
+                    <td>{{ cerve.graduacion }}</td>
+                    <td>{{ cerve.categoria }}</td>
+                    <td>{{eti }}</td>
+                </tr>
+            {% endfor %}
+        {% endfor %}
+
+        {#
         {% for cerve in cerveza %}
             <tr>
                 <td>{{ cerve.nombre }}</td>
@@ -41,7 +54,7 @@
                 {% endfor %}
             </tr>
         {% endfor %}
-
+        #}
         </tbody>
     </table>
 
