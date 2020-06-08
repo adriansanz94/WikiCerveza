@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Cerveza;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -31,7 +32,12 @@ class PincipalController extends AbstractController
     'profesores' => $rProfesor->findAll(),
     'modulos' => $rModulo->findAll()
     ]);*/
-    return $this->render('publicaciones/inicio.html.twig');
+
+    $rCerveza = $this->getDoctrine()->getRepository(Cerveza::class);
+    return $this->render('publicaciones/inicio.html.twig', [
+        'cerveza' => $rCerveza->findAll()
+    ]);
+
     }
 
     /**

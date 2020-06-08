@@ -101,6 +101,6 @@ class Categoria
     public function __toString()
     {
         // TODO: Implement __toString() method.
-        return "(". $this->getId(). ") ". substr($this->getNombre(), 0, 10);;
+        return $this->getNombre();
     }
 }

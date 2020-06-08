@@ -20,20 +20,21 @@
     <table border="1px solid">
         <thead>
         <th>Nombre</th>
-        <th>Descripcion</th>
         <th>Graduación</th>
         <th>Categoria</th>
         <th>Etiqueta</th>
         </thead>
         <tbody>
-
+        {% for cerve in cerveza %}
+            {% for eti in cerve.etiqueta %}
             <tr>
-                <td>Nombre</td>
-                <td>Descripcion</td>
-                <td>Graduacion</td>
-                <td>Categoria</td>
-                <td>Etiqueta</td>
+                <td>{{ cerve.nombre }}</td>
+                <td>{{ cerve.graduacion }}</td>
+                <td>{{ cerve.categoria }}</td>
+                <td>{{ eti }}</td>
             </tr>
+            {% endfor %}
+        {% endfor %}
 
         </tbody>
     </table>
