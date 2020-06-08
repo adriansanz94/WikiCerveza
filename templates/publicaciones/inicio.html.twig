@@ -13,7 +13,7 @@
     </div>
     <div>
 
-        <a href="{{ path('app_login') }}">logearse</a>
+        <a href="{{ path('app_login') }}">Login</a>
         <a href="{{ path('app_logout') }}">Logout</a>
 
     </div>
@@ -28,19 +28,21 @@
         <th>Nombre</th>
         <th>Graduación</th>
         <th>Categoria</th>
+
         <th>Etiqueta</th>
+
         </thead>
         <tbody>
         {#
         {% for cerve in cerveza %}
-            {% for eti in cerve.etiqueta %}
             <tr>
                 <td>{{ cerve.nombre }}</td>
                 <td>{{ cerve.graduacion }}</td>
                 <td>{{ cerve.categoria }}</td>
-                <td>{{ eti }}</td>
+                {% for etiqueta in cerve.getEtiqueta() %}
+                    <td>{{ etiqueta.nombre }}</td>
+                {% endfor %}
             </tr>
-            {% endfor %}
         {% endfor %}
         #}
         </tbody>

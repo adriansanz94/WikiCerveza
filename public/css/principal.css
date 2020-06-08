@@ -11,7 +11,8 @@ div{
     background-color: black;
 }
 div a{
-    color: red;
+    text-decoration: none;
+    color: yellow;
 }
 
 p{

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Cerveza;
+use App\Entity\Etiqueta;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -34,8 +35,11 @@ class PincipalController extends AbstractController
     ]);*/
 
     $rCerveza = $this->getDoctrine()->getRepository(Cerveza::class);
+
+    $rEtiquetas = $this->getDoctrine()->getRepository(Etiqueta::class);
     return $this->render('publicaciones/inicio.html.twig', [
-        'cerveza' => $rCerveza->findAll()
+        'cerveza' => $rCerveza->findAll(),
+        'etiqueta' => $rEtiquetas->findAll()
     ]);
 
     }
