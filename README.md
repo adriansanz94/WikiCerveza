@@ -52,7 +52,7 @@ php bin/console make:fixtures
 ```
 y para cargarlos es
 ```
-php bin/console doctrine:fixtures load
+php bin/console doctrine:fixtures:load
 ``` 
 ##para las rutas instalamos el security-bundle
 ```
