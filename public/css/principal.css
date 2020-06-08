@@ -5,9 +5,13 @@ div:first-of-type{
 }
 img{
     padding:5px;
+}
 div{
     text-align: center;
     background-color: black;
+}
+div a{
+    color: red;
 }
 
 p{
@@ -25,4 +29,5 @@ table{
 a{
     text-align: center;
     width: 50px;
+
 }
