@@ -24,46 +24,45 @@
         obcaecati, omnis, optio quasi recusandae, reiciendis repudiandae ut voluptas?
     </p>
     <table border="1px solid">
-        <thead>
-        <th>Nombre</th>
-        <th>Graduación</th>
-        <th>Categoria</th>
-        <th>Etiqueta</th>
-        </thead>
-        <tbody>
+      <thead>
+      <th>Nombre</th>
+      <th>Graduación</th>
+      <th>Categoria</th>
+      <th>Etiqueta</th>
+      </thead>
+      <tbody>
 
-        {% for cerve in cerveza %}
-            {% for eti in etiqueta %}
-                <tr>
-                    <td>{{ cerve.nombre }}</td>
-                    <td>{{ cerve.graduacion }}</td>
-                    <td>{{ cerve.categoria }}</td>
-                    <td>{{eti }}</td>
-                </tr>
-            {% endfor %}
-        {% endfor %}
-        </tbody>
-        <thead>
-        <th>Nombre</th>
-        <th>Graduación</th>
-        <th>Categoria</th>
-        <th>Etiqueta</th>
-        </thead>
-        <tbody>
-        {% for cerve in cerveza %}
-            <tr>
-                <td>{{ cerve.nombre }}</td>
-                <td>{{ cerve.graduacion }}</td>
-                <td>{{ cerve.categoria }}</td>
-                {% for etiqueta in cerve.getEtiqueta() %}
-                    <td>{{ etiqueta.nombre }}</td>
-                {% endfor %}
-            </tr>
-        {% endfor %}
+      {% for cerve in cerveza %}
+          {% for eti in etiqueta %}
+              <tr>
+                  <td>{{ cerve.nombre }}</td>
+                  <td>{{ cerve.graduacion }}</td>
+                  <td>{{ cerve.categoria }}</td>
+                  <td>{{eti }}</td>
+              </tr>
+          {% endfor %}
+      {% endfor %}
+      </tbody>
+      <thead>
+      <th>Nombre</th>
+      <th>Graduación</th>
+      <th>Categoria</th>
+      <th>Etiqueta</th>
+      </thead>
+      <tbody>
+      {% for cerve in cerveza %}
+          <tr>
+              <td>{{ cerve.nombre }}</td>
+              <td>{{ cerve.graduacion }}</td>
+              <td>{{ cerve.categoria }}</td>
+              {% for etiqueta in cerve.getEtiqueta() %}
+                  <td>{{ etiqueta.nombre }}</td>
+              {% endfor %}
+          </tr>
+      {% endfor %}
 
-        </tbody>
-    </table>
-
+      </tbody>
+     </table>
 
     <a href="{{ path('agregar') }}">Añadir cerveza</a>
 
