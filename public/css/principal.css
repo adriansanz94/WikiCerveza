@@ -3,6 +3,14 @@ div:first-of-type{
     background-color:black;
     height: 65px;
 }
+footer div{
+    background-color:red;
+    color:yellow;
+    height: 4em;
+}
+footer div p{
+    text-align: center;
+}
 img{
     padding:5px;
 }
@@ -26,9 +34,24 @@ table{
     margin-top: 5em;
 }
 
-
 a{
     text-align: center;
     width: 50px;
+    text-decoration: none;
+}
+
+body > p > a{
+    color:yellow;
+    background-color: black;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+body > p:last-of-type > a{
+    text-align: center;
+    width: 50px;
+    color:red;
+    background-color: white;
 
 }
+

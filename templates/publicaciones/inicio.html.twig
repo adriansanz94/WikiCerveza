@@ -1,48 +1,16 @@
 {% extends 'base.html.twig'%}
 
 {% block title %}Bienvenido a WikiCervezas{% endblock %}
-{% block stylesheets %}
-    <link href="{{ asset('css/principal.css') }}" type="text/css" rel="stylesheet" />
-{% endblock %}
-
 
 {% block body %}
-    <div>
-        <img src="{{ asset('imagenes/logo.png') }}" alt="">
-
-    </div>
-    <div>
-
-        <a href="{{ path('app_login') }}">Login</a>
-        <a href="{{ path('app_logout') }}">Logout</a>
-
-    </div>
 
     <p>breve descripcion de la empresa jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj<br>
       jkdfhdhjfhjdfhjdhf  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium <br>
         consequuntur culpa cumque dolores eveniet id in iusto magnam natus necessitatibus numquam <br>
         obcaecati, omnis, optio quasi recusandae, reiciendis repudiandae ut voluptas?
     </p>
+    <p> <a href="{{ path('easyadmin') }}">Añadir cerveza</a> </p>
     <table border="1px solid">
-      <thead>
-      <th>Nombre</th>
-      <th>Graduación</th>
-      <th>Categoria</th>
-      <th>Etiqueta</th>
-      </thead>
-      <tbody>
-
-      {% for cerve in cerveza %}
-          {% for eti in etiqueta %}
-              <tr>
-                  <td>{{ cerve.nombre }}</td>
-                  <td>{{ cerve.graduacion }}</td>
-                  <td>{{ cerve.categoria }}</td>
-                  <td>{{eti }}</td>
-              </tr>
-          {% endfor %}
-      {% endfor %}
-      </tbody>
       <thead>
       <th>Nombre</th>
       <th>Graduación</th>
@@ -55,16 +23,20 @@
               <td>{{ cerve.nombre }}</td>
               <td>{{ cerve.graduacion }}</td>
               <td>{{ cerve.categoria }}</td>
-              {% for etiqueta in cerve.getEtiqueta() %}
-                  <td>{{ etiqueta.nombre }}</td>
-              {% endfor %}
+              <td>
+
+                  {% for etiqueta in cerve.getEtiqueta() %}
+                      {{ etiqueta.nombre  }}
+                  {% endfor %}
+
+              </td>
           </tr>
       {% endfor %}
 
       </tbody>
      </table>
+     <p> <a href="{{ path('inicio') }}">+ ver más </a> </p>
 
-    <a href="{{ path('easyadmin') }}">Añadir cerveza</a>
 
 
 {% endblock %}

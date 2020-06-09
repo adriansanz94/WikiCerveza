@@ -3,10 +3,31 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            <link href="{{ asset('css/principal.css') }}" type="text/css" rel="stylesheet" />
+        {% endblock %}
+        <div>
+            <img src="{{ asset('imagenes/logo.png') }}" alt="">
+
+        </div>
+        <div>
+            <a href="{{ path('inicio') }}">Inicio</a>
+            <a href="{{ path('app_login') }}">Login</a>
+            <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
     </head>
     <body>
+
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
+    <footer>
+        <div>
+            <p>Pie de nuestra página web </br>
+                Trabaja con nosotros</br>
+                ¿Quienes somos?
+            </p>
+        </div>
+
+    </footer>
 </html>
