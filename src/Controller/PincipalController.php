@@ -57,7 +57,11 @@ class PincipalController extends AbstractController
             ->findAll();
 
 
-        return  new JsonResponse($cerveza);
+        //$response = new JsonResponse($cerveza);
+        $response = JsonResponse::fromJsonString($cerveza);
+
+        return  $response;
+
         //return $this->json(['cervezas '=>'hola']);
         //return $this->json(['mensaje '=>$hola ]);
 
