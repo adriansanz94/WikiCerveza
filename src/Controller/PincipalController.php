@@ -27,8 +27,8 @@ class PincipalController extends AbstractController
 
         $rEtiquetas = $this->getDoctrine()->getRepository(Etiqueta::class);
         return $this->render('publicaciones/inicio.html.twig', [
-            'cerveza' => $rCerveza->findAll(),
-            'etiqueta' => $rEtiquetas->findAll()
+            'cerveza' => $rCerveza->findAll()
+            //'etiqueta' => $rEtiquetas->findAll()
         ]);
     }
 
@@ -40,6 +40,13 @@ class PincipalController extends AbstractController
         return $this->render('publicaciones/detalle.html.twig',[
             'cerveza' => $id
         ]);
+    }
+    /**
+     * @Route("/verMas", name="verMas")
+     */
+    public function verMasJson()
+    {
+        return $this->json(['mensaje '=>'hola Mundo' ]);
     }
 
 }
