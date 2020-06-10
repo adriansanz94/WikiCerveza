@@ -1,0 +1,39 @@
+
+{% block javascripts %}
+<script type="text/javascript">
+
+    let uri =  'https://127.0.0.1:8000/verMasJson';
+
+    let boton = document.getElementById('verMas');
+    addEventListener('click',obtenerCervezas);
+
+    function obtenerCervezas(){
+        peticion(uri);
+    }
+
+    function peticion(uri){
+            let xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function(){
+            if(xhr.readyState === 4) {
+                if(xhr.status === 200) {
+                    console.log(exito(xhr));
+
+                }else{
+                     error(xhr);
+                }
+            }
+        }
+            xhr.open('GET',uri);
+            xhr.send();
+    }
+
+    function exito(text){
+        return JSON.parse(text.response);
+    }
+
+    function error(xhr){
+        return `Error: ${xhr.status} (${xhr.statusText})`;
+    }
+</script>
+
+{% endblock %}
