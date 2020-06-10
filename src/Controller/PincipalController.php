@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Cerveza;
 use App\Entity\Etiqueta;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
@@ -51,20 +52,18 @@ class PincipalController extends AbstractController
         $hola=['Hola','mundo','ajax',['me','cago','en','tus','muertos']];
 
 
-        //$cerveza = $this->getDoctrine()->getRepository(Cerveza::class)->findAll();
         $cerveza = $this->getDoctrine()
             ->getRepository(Cerveza::class)
-            ->findAll();
+            ->createQueryBuilder('c')
+            ->select('c')
+            ->getQuery()
+            ->getResult(\Doctrine\ORM\Query::HYDRATE_ARRAY);
 
+        return  new JsonResponse($cerveza);
 
-        //$response = new JsonResponse($cerveza);
-        $response = JsonResponse::fromJsonString($cerveza);
-
-        return  $response;
-
+        //return  new JsonResponse($cerveza);
         //return $this->json(['cervezas '=>'hola']);
         //return $this->json(['mensaje '=>$hola ]);
-
     }
 
 }
