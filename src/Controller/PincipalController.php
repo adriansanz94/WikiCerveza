@@ -46,7 +46,12 @@ class PincipalController extends AbstractController
      */
     public function verMasJson()
     {
-        return $this->json(['mensaje '=>'hola Mundo' ]);
+        $rCerveza = $this->getDoctrine()->getRepository(Cerveza::class);
+
+        $cerveza = $rCerveza->findAll();
+        print_r($cerveza);
+        return $this->json(['cervezas '=>'hola']);
+        //return $this->json(['mensaje '=> 'Hola mundo']);
     }
 
 }
