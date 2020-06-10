@@ -46,7 +46,8 @@ class PincipalController extends AbstractController
      */
     public function verMasJson()
     {
-        return $this->json(['mensaje '=>'hola Mundo' ]);
+        $hola=['Hola','mundo','ajax',['me','cago','en','tus','muertos']];
+        return $this->json(['mensaje '=>$hola ]);
     }
 
 }
