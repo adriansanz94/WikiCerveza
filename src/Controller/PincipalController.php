@@ -44,7 +44,7 @@ class PincipalController extends AbstractController
         ]);
     }
     /**
-     * @Route("/verMas", name="verMas")
+     * @Route("/verMasJson", name="verMasJson")
      */
     public function verMasJson()
     {
@@ -66,6 +66,13 @@ class PincipalController extends AbstractController
         //return $this->json(['cervezas '=>'hola']);
         //return $this->json(['mensaje '=>$hola ]);
 
+    } /**
+ * @Route("/verMas", name="verMas")
+ */
+    public  function verMas()
+    {
+        return $this->render("/js/verMas.js.twig");
     }
+
 
 }
