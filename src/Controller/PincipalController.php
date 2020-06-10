@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Cerveza;
 use App\Entity\Etiqueta;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 class PincipalController extends AbstractController
@@ -46,8 +47,20 @@ class PincipalController extends AbstractController
      */
     public function verMasJson()
     {
+
         $hola=['Hola','mundo','ajax',['me','cago','en','tus','muertos']];
-        return $this->json(['mensaje '=>$hola ]);
+
+
+        //$cerveza = $this->getDoctrine()->getRepository(Cerveza::class)->findAll();
+        $cerveza = $this->getDoctrine()
+            ->getRepository(Cerveza::class)
+            ->findAll();
+
+
+        return  new JsonResponse($cerveza);
+        //return $this->json(['cervezas '=>'hola']);
+        //return $this->json(['mensaje '=>$hola ]);
+
     }
 
 }
