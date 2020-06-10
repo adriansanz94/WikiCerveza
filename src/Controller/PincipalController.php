@@ -26,10 +26,11 @@ class PincipalController extends AbstractController
     public function index()
     {
         $rCerveza = $this->getDoctrine()->getRepository(Cerveza::class);
-        $cerve3 = $this->findBy($rCerveza,'asc',3);
+        //$cerve3 = $this->findBy($rCerveza,'asc',3);
         $rEtiquetas = $this->getDoctrine()->getRepository(Etiqueta::class);
         return $this->render('publicaciones/inicio.html.twig', [
-            'cerveza' => $cerve3->findAll()
+            'cerveza' => $rCerveza->findAll()
+            //'cerveza' => $cerve3->findAll()
             //'etiqueta' => $rEtiquetas->findAll()
         ]);
     }
@@ -49,7 +50,7 @@ class PincipalController extends AbstractController
     public function verMasJson()
     {
 
-        $hola=['Hola','mundo','ajax',['me','cago','en','tus','muertos']];
+        $hola=['Hola','mundo','ajax',['voy','a','aprobar','si ','o ','si']];
 
 
         $cerveza = $this->getDoctrine()
