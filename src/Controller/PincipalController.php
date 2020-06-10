@@ -23,33 +23,23 @@ class PincipalController extends AbstractController
     */
     public function index()
     {
-    /* $rCervezas = $this->getDoctrine()->getRepository(Cerveza::class);
-    $rUsuario = $this->getDoctrine()->getRepository(Usuario::class);
-    $rCategoria = $this->getDoctrine()->getRepository(Categoria::class);*/
+        $rCerveza = $this->getDoctrine()->getRepository(Cerveza::class);
 
-
-    /* return $this->render('principal/index.html.twig', [
-    'ciclos' => $rCiclo->findAll(),
-    'profesores' => $rProfesor->findAll(),
-    'modulos' => $rModulo->findAll()
-    ]);*/
-
-    $rCerveza = $this->getDoctrine()->getRepository(Cerveza::class);
-
-    $rEtiquetas = $this->getDoctrine()->getRepository(Etiqueta::class);
-    return $this->render('publicaciones/inicio.html.twig', [
-        'cerveza' => $rCerveza->findAll(),
-        'etiqueta' => $rEtiquetas->findAll()
-    ]);
-
+        $rEtiquetas = $this->getDoctrine()->getRepository(Etiqueta::class);
+        return $this->render('publicaciones/inicio.html.twig', [
+            'cerveza' => $rCerveza->findAll(),
+            'etiqueta' => $rEtiquetas->findAll()
+        ]);
     }
 
     /**
-     * @Route("/agregar", name="agregar")
+     * @Route("/Cerveza{id<\d+>}", name="detalle")
      */
-    public function agregar()
+    public function detalle(Cerveza $id)
     {
-        return $this->render('/privado/index.html.twig');
+        return $this->render('publicaciones/detalle.html.twig',[
+            'cerveza' => $id
+        ]);
     }
 
 }

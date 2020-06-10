@@ -1,0 +1,36 @@
+{% extends 'base.html.twig'%}
+
+{% block title %}Bienvenido a WikiCervezas{% endblock %}
+
+{% block body %}
+
+    <h1>Detalle de una Cerveza </h1>
+    <br>
+    <br>
+
+    <h3>Nombre</h3>
+    <p>cerveza.getNombre</p>
+    <h3>Graduacion</h3>
+    <p>cerveza.getGraduacion</p>
+    <h3>Categoria</h3>
+    <p>cerveza.getCategoria</p>
+
+    <h3>Etiquetas</h3>
+    {% for cerve in cerveza %}
+        <h3>Nombre</h3>
+        <p>cerve.getNombre</p>
+        <h3>Graduacion</h3>
+        <p>cerve.getGraduacion</p>
+        <h3>Categoria</h3>
+        <p>cerveza.getCategoria</p>
+
+    {% endfor %}
+    {% for cerve in cerveza.getEtiqueta %}
+        <p>{{ cerve }}</p>
+    {% endfor %}
+
+
+
+
+{% endblock %}
+
