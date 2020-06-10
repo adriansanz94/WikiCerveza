@@ -26,10 +26,10 @@ class PincipalController extends AbstractController
     public function index()
     {
         $rCerveza = $this->getDoctrine()->getRepository(Cerveza::class);
-
+        $cerve3 = $this->findBy($rCerveza,'asc',3);
         $rEtiquetas = $this->getDoctrine()->getRepository(Etiqueta::class);
         return $this->render('publicaciones/inicio.html.twig', [
-            'cerveza' => $rCerveza->findAll()
+            'cerveza' => $cerve3->findAll()
             //'etiqueta' => $rEtiquetas->findAll()
         ]);
     }
