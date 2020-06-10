@@ -19,7 +19,10 @@
     <body>
 
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+            {{ include('./js/verMas.js.twig') }}
+        {% endblock %}
+
     </body>
     <footer>
         <div>

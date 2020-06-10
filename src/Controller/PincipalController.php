@@ -72,7 +72,7 @@ class PincipalController extends AbstractController
      */
     public  function verMas()
     {
-        return $this->render("/js/verMas.js.twig");
+        return $this->render("/js/verMas.js");
 
     }
 

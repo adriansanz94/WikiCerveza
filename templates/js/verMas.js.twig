@@ -2,13 +2,15 @@
 {% block javascripts %}
 <script type="text/javascript">
 
+    let datos = [];
     let uri =  'https://127.0.0.1:8000/verMasJson';
 
     let boton = document.getElementById('verMas');
-    addEventListener('click',obtenerCervezas);
+    boton.addEventListener('click',obtenerCervezas);
 
     function obtenerCervezas(){
         peticion(uri);
+        rellenarTabla();
     }
 
     function peticion(uri){
@@ -16,7 +18,8 @@
             xhr.onreadystatechange = function(){
             if(xhr.readyState === 4) {
                 if(xhr.status === 200) {
-                    console.log(exito(xhr));
+                    datos = exito(xhr);
+                    console.log(datos);
 
                 }else{
                      error(xhr);
@@ -33,6 +36,29 @@
 
     function error(xhr){
         return `Error: ${xhr.status} (${xhr.statusText})`;
+    }
+
+    function rellenarTabla(){
+    let tablaBody = document.getElementsByTagName('tbody')[0];
+    let trNueva = document.createElement('tr');
+    let tdNombre = document.createElement('td');
+    let tdGraduacion = document.createElement('td');
+    let tdCategoria = document.createElement('td');
+    let tdEtiqueta = document.createElement('td');
+
+    tdNombre.innerHTML = 'jack sparrow';
+
+    trNueva.appendChild(tdNombre);
+    tablaBody.appendChild(trNueva);
+
+    console.log(tablaBody);
+
+    for(let indice = 0; indice < datos.length; indice ++){
+        tdNombre.innerHTML = datos[indice].nombre;
+        tdGraduacion.innerHTML = datos[indice].graduacion;
+
+    }
+
     }
 </script>
 
