@@ -6,6 +6,8 @@ let uri =  'https://127.0.0.1:8000/verMasJson';
 let boton = document.getElementById('verMas');
 boton.addEventListener('click',obtenerCervezas);
 
+let arraySeleccionado = [];
+
 function obtenerCervezas(){
     peticion(uri);
     rellenarTabla();
@@ -38,9 +40,7 @@ function error(xhr){
 
 function rellenarTabla(){
     let tablaBody = document.getElementsByTagName('tbody')[0];
-    let trNueva = document.createElement('tr');
-    let tdNombre = document.createElement('td');
-    let tdGraduacion = document.createElement('td');
+
     //let tdCategoria = document.createElement('td');
     //let tdEtiqueta = document.createElement('td');
 
@@ -54,15 +54,25 @@ function rellenarTabla(){
     console.log(datos.length);
 
     for(let indice = 0; indice < datos.length; indice ++){
+        let trNueva = document.createElement('tr');
+        let tdNombre = document.createElement('td');
+        let tdGraduacion = document.createElement('td');
+
         console.log("estoy dentro del for");
+        console.log(datos[indice]);
         tdNombre.innerHTML = datos[indice].nombre;
         tdGraduacion.innerHTML = datos[indice].graduacion;
 
         trNueva.appendChild(tdNombre);
-
-        console.log(datos[indice].graduacion);
         trNueva.appendChild(tdGraduacion);
 
+        tablaBody.appendChild(trNueva);
+
     }
-    tablaBody.appendChild(trNueva);
+
+    }
+    function obtener3(id){
+        for (let indice = 0; indice > datos.length; indice++){
+            arraySeleccionado[indice] = datos[indice];
+        }
     }

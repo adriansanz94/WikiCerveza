@@ -47,7 +47,7 @@ body > p > a{
     border-radius: 5px;
 }
 
-body > p:last-of-type > a{
+.añadirCerveza{
     text-align: center;
     width: 50px;
     color:red;
@@ -55,3 +55,16 @@ body > p:last-of-type > a{
 
 }
 
+.detalle{
+    margin:0 auto;
+    margin-top: 2em;
+    background-color: navajowhite;
+    border: 1px solid black;
+    width: 40%;
+    height: 70%;
+}
+
+.detalle > p {
+    margin: 0 auto;
+    text-align: center;
+}
