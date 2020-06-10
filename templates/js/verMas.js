@@ -44,18 +44,23 @@ function rellenarTabla(){
     //let tdCategoria = document.createElement('td');
     //let tdEtiqueta = document.createElement('td');
 
-    tdNombre.innerHTML = 'jack sparrow';
+    //tdNombre.innerHTML = 'jack sparrow';
 
     //trNueva.appendChild(tdNombre);
     //tablaBody.appendChild(trNueva);
 
-    console.log(tablaBody);
+    //console.log(tablaBody);
+    console.log("estoy fuera del for");
+    console.log(datos.length);
 
     for(let indice = 0; indice < datos.length; indice ++){
+        console.log("estoy dentro del for");
         tdNombre.innerHTML = datos[indice].nombre;
         tdGraduacion.innerHTML = datos[indice].graduacion;
 
         trNueva.appendChild(tdNombre);
+
+        console.log(datos[indice].graduacion);
         trNueva.appendChild(tdGraduacion);
 
     }

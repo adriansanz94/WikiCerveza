@@ -20,7 +20,8 @@
 
         {% block body %}{% endblock %}
         {% block javascripts %}
-            {{ include('./js/verMas.js.twig') }}
+            <script src="{{ asset('verMas') }}" type="text/javascript"></script>
+           {# {{ include('./js/verMas.js') }} #}
         {% endblock %}
 
     </body>
