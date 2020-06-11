@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Categoria;
 use App\Entity\Cerveza;
 use App\Entity\Etiqueta;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -59,8 +60,22 @@ class PincipalController extends AbstractController
             ->select('c')
             ->getQuery()
             ->getResult(\Doctrine\ORM\Query::HYDRATE_ARRAY);
+        $etiqueta = $this->getDoctrine()
+            ->getRepository(Etiqueta::class)
+            ->createQueryBuilder('c')
+            ->select('c')
+            ->getQuery()
+            ->getResult(\Doctrine\ORM\Query::HYDRATE_ARRAY);
+        $categoria = $this->getDoctrine()
+            ->getRepository(Categoria::class)
+            ->createQueryBuilder('c')
+            ->select('c')
+            ->getQuery()
+            ->getResult(\Doctrine\ORM\Query::HYDRATE_ARRAY);
 
-        return  new JsonResponse($cerveza);
+        $arrayTotal = array_merge($cerveza,$etiqueta,$categoria);
+
+        return  new JsonResponse($arrayTotal);
 
         //return  new JsonResponse($cerveza);
         //return $this->json(['cervezas '=>'hola']);

@@ -67,7 +67,6 @@ function rellenarTabla(){
         trNueva.appendChild(tdGraduacion);
 
         tablaBody.appendChild(trNueva);
-
     }
 
     }
