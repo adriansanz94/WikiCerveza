@@ -27,7 +27,7 @@ class PincipalController extends AbstractController
     public function index()
     {
         $rCerveza = $this->getDoctrine()->getRepository(Cerveza::class);
-        //$cerve3 = $this->findBy($rCerveza,'asc',3);
+        //$cerve3 php
         $rEtiquetas = $this->getDoctrine()->getRepository(Etiqueta::class);
         return $this->render('publicaciones/inicio.html.twig', [
             'cerveza' => $rCerveza->findAll()
