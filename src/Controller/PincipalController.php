@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Categoria;
 use App\Entity\Cerveza;
 use App\Entity\Etiqueta;
+use Container5d32ZqV\getEtiquetaRepositoryService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -29,6 +30,9 @@ class PincipalController extends AbstractController
         $rCerveza = $this->getDoctrine()->getRepository(Cerveza::class);
         //$cerve3 php
         $rEtiquetas = $this->getDoctrine()->getRepository(Etiqueta::class);
+
+        //$cerve3 = $this->findBy($rCerveza,'asc',3);
+        //$rEtiquetas = $this->getDoctrine()->getRepository(Etiqueta::class);
         return $this->render('publicaciones/inicio.html.twig', [
             'cerveza' => $rCerveza->findAll()
             //'cerveza' => $cerve3->findAll()
@@ -51,9 +55,6 @@ class PincipalController extends AbstractController
     public function verMasJson()
     {
 
-        $hola=['Hola','mundo','ajax',['voy','a','aprobar','si ','o ','si']];
-
-
         $cerveza = $this->getDoctrine()
             ->getRepository(Cerveza::class)
             ->createQueryBuilder('c')
@@ -73,14 +74,15 @@ class PincipalController extends AbstractController
             ->getQuery()
             ->getResult(\Doctrine\ORM\Query::HYDRATE_ARRAY);
 
+        /*$cerveza = $this->getDoctrine()
+            ->getRepository(Cerveza::class)->findAll();*/
         $arrayTotal = array_merge($cerveza,$etiqueta,$categoria);
-
         return  new JsonResponse($arrayTotal);
-
-        //return  new JsonResponse($cerveza);
-        //return $this->json(['cervezas '=>'hola']);
-        //return $this->json(['mensaje '=>$hola ]);
-
+        /*return  new JsonResponse(['cervezas' => $cerveza,
+                                    'etiqueta' => $etiqueta,
+                                        'categoria' => $categoria]);*/
+        /*$rCerveza = $this->getDoctrine()->getRepository(Cerveza::class);
+        return $this->json(['cervezas' => $rCerveza->findAll()]);*/
 
     }
     /**
