@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Categoria;
 use App\Entity\Cerveza;
 use App\Entity\Etiqueta;
+use Container5d32ZqV\getEtiquetaRepositoryService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -28,7 +29,7 @@ class PincipalController extends AbstractController
     {
         $rCerveza = $this->getDoctrine()->getRepository(Cerveza::class);
         //$cerve3 = $this->findBy($rCerveza,'asc',3);
-        $rEtiquetas = $this->getDoctrine()->getRepository(Etiqueta::class);
+        //$rEtiquetas = $this->getDoctrine()->getRepository(Etiqueta::class);
         return $this->render('publicaciones/inicio.html.twig', [
             'cerveza' => $rCerveza->findAll()
             //'cerveza' => $cerve3->findAll()
@@ -54,7 +55,7 @@ class PincipalController extends AbstractController
         $hola=['Hola','mundo','ajax',['voy','a','aprobar','si ','o ','si']];
 
 
-        $cerveza = $this->getDoctrine()
+        /*$cerveza = $this->getDoctrine()
             ->getRepository(Cerveza::class)
             ->createQueryBuilder('c')
             ->select('c')
@@ -71,9 +72,19 @@ class PincipalController extends AbstractController
             ->createQueryBuilder('c')
             ->select('c')
             ->getQuery()
-            ->getResult(\Doctrine\ORM\Query::HYDRATE_ARRAY);
+            ->getResult(\Doctrine\ORM\Query::HYDRATE_ARRAY);*/
 
-        $arrayTotal = array_merge($cerveza,$etiqueta,$categoria);
+        $cerveza = $this->getDoctrine()
+            ->getRepository(Cerveza::class)->findAll();
+
+        /*$fCerve = [
+           'id'=>$cerveza.id,
+           'nombre'=>$cerveza.nombre,
+           'graduacion'=>$cerveza.graduacion,
+           'categoria'=>$cerveza.cattegoria,
+           'etiquetas'=>$cerveza.etiqueta,
+        ];*/
+        $arrayTotal = array_merge($cerveza/*,$etiqueta,$categoria*/);
 
         return  new JsonResponse($arrayTotal);
 
