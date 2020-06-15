@@ -48,7 +48,7 @@ class CCervezasFixtures extends Fixture
         $cev = new Cerveza();
         $cev->setNombre("Voll Damm");
         $cev->setGraduacion(7,2);
-        $cev->setCategoria($oCats["OTRAS"]);
+        $cev->setCategoria($oCats["ALE"]);
         $cev->addEtiquetum($oEtis["Tostada"]);
         $cev->addEtiquetum($oEtis["Equilibrada"]);
         $cev->addEtiquetum($oEtis["Dulzona"]);
@@ -72,7 +72,7 @@ class CCervezasFixtures extends Fixture
         $cev3 = new Cerveza();
         $cev3->setNombre("Amstel");
         $cev3->setGraduacion(7,2);
-        $cev3->setCategoria($oCats["OTRAS"]);
+        $cev3->setCategoria($oCats["PORTER Y STOUT"]);
         $cev3->addEtiquetum($oEtis["Tostada"]);
         $cev3->addEtiquetum($oEtis["Equilibrada"]);
         $cev3->addEtiquetum($oEtis["Dulzona"]);
@@ -88,7 +88,7 @@ class CCervezasFixtures extends Fixture
         $cev5 = new Cerveza();
         $cev5->setNombre("Mixta");
         $cev5->setGraduacion(5);
-        $cev5->setCategoria($oCats["TRIGO"]);
+        $cev5->setCategoria($oCats["PORTER Y STOUT"]);
         $cev5->addEtiquetum($oEtis["Citrico"]);
         $cev5->addEtiquetum($oEtis["Amarga"]);
         $cev5->addEtiquetum($oEtis["Dulzona"]);
@@ -112,7 +112,7 @@ class CCervezasFixtures extends Fixture
         $cev8 = new Cerveza();
         $cev8->setNombre("Ladrón de sidras");
         $cev8->setGraduacion(5);
-        $cev8->setCategoria($oCats["TRIGO"]);
+        $cev8->setCategoria($oCats["ALE"]);
         $cev8->addEtiquetum($oEtis["Citrico"]);
         $cev8->addEtiquetum($oEtis["Amarga"]);
         $cev8->addEtiquetum($oEtis["Dulzona"]);
@@ -128,23 +128,21 @@ class CCervezasFixtures extends Fixture
         $cev10 = new Cerveza();
         $cev10->setNombre("Bayern Beer");
         $cev10->setGraduacion(6,4);
-        $cev10->setCategoria($oCats["LAGER"]);
+        $cev10->setCategoria($oCats["ALE"]);
         $cev10->addEtiquetum($oEtis["Tostada"]);
-        $cev10->addEtiquetum($oEtis["Amarga"]);
-        $cev10->addEtiquetum($oEtis["Dulzona"]);
+
 
         $cev11 = new Cerveza();
         $cev11->setNombre("Corona");
         $cev11->setGraduacion(5);
         $cev11->setCategoria($oCats["TRIGO"]);
-        $cev11->addEtiquetum($oEtis["Citrico"]);
         $cev11->addEtiquetum($oEtis["Amarga"]);
         $cev11->addEtiquetum($oEtis["Dulzona"]);
 
         $cev12 = new Cerveza();
         $cev12->setNombre("San Miguel");
         $cev12->setGraduacion(7,2);
-        $cev12->setCategoria($oCats["OTRAS"]);
+        $cev12->setCategoria($oCats["PORTER Y STOUT"]);
         $cev12->addEtiquetum($oEtis["Tostada"]);
         $cev12->addEtiquetum($oEtis["Equilibrada"]);
         $cev12->addEtiquetum($oEtis["Dulzona"]);
@@ -162,8 +160,7 @@ class CCervezasFixtures extends Fixture
         $cev14->setGraduacion(5);
         $cev14->setCategoria($oCats["TRIGO"]);
         $cev14->addEtiquetum($oEtis["Citrico"]);
-        $cev14->addEtiquetum($oEtis["Amarga"]);
-        $cev14->addEtiquetum($oEtis["Dulzona"]);
+
 
 
         $manager->persist($cev);

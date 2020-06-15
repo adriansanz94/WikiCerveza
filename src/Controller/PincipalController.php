@@ -33,7 +33,7 @@ class PincipalController extends AbstractController
         $rCategoria = $this->getDoctrine()->getRepository(Categoria::class);
         return $this->render('publicaciones/detalle.html.twig',[
             'cerveza' => $id,
-            'categoria' => $rCategoria->find($id)
+            'categoria' => $rCategoria->findAll()
         ]);
     }
     /**
