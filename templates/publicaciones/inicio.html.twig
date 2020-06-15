@@ -36,6 +36,9 @@
     <button id="verMas">+ ver más </button>
 
 
-
+    {% block javascripts %}
+        <script src="{{ asset('verMas') }}" type="text/javascript"></script>
+        {# {{ include('./js/verMas.js') }} #}
+    {% endblock %}
 {% endblock %}
 
