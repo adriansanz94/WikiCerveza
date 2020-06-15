@@ -13,30 +13,15 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PincipalController extends AbstractController
 {
-    /*/**
-     * @Route("/pincipal", name="pincipal")
-     /
-    public function index()
-    {
-        return $this->render('publicaciones/inicio.html.twig', [
-            'controller_name' => 'PincipalController',
-        ]);
-    }*/
     /**
      * @Route("/", name="inicio")
     */
     public function index()
     {
         $rCerveza = $this->getDoctrine()->getRepository(Cerveza::class);
-        //$cerve3 php
-        //$rEtiquetas = $this->getDoctrine()->getRepository(Etiqueta::class);
 
-        //$cerve3 = $this->findBy($rCerveza,'asc',3);
-        //$rEtiquetas = $this->getDoctrine()->getRepository(Etiqueta::class);
         return $this->render('publicaciones/inicio.html.twig', [
             'cerveza' => $rCerveza->findBy([],null,3)
-            //'cerveza' => $cerve3->findAll()
-            //'etiqueta' => $rEtiquetas->findAll()
         ]);
     }
 
@@ -54,32 +39,6 @@ class PincipalController extends AbstractController
      */
     public function verMasJson($offset)
     {
-        /*$cerveza = $this->getDoctrine()
-            ->getRepository(Cerveza::class)
-            ->createQueryBuilder('c')
-            ->select('c')
-            ->getQuery()
-            ->getResult(\Doctrine\ORM\Query::HYDRATE_ARRAY);
-        $etiqueta = $this->getDoctrine()
-            ->getRepository(Etiqueta::class)
-            ->createQueryBuilder('c')
-            ->select('c')
-            ->getQuery()
-            ->getResult(\Doctrine\ORM\Query::HYDRATE_ARRAY);
-        $categoria = $this->getDoctrine()
-            ->getRepository(Categoria::class)
-            ->createQueryBuilder('c')
-            ->select('c')
-            ->getQuery()
-            ->getResult(\Doctrine\ORM\Query::HYDRATE_ARRAY);*/
-
-        /*$cerveza = $this->getDoctrine()
-            ->getRepository(Cerveza::class)->findAll();*/
-       // $arrayTotal = array_merge($cerveza,$etiqueta,$categoria);
-        //return  new JsonResponse($arrayTotal);
-        /*return  new JsonResponse(['cervezas' => $cerveza,
-                                    'etiqueta' => $etiqueta,
-                                        'categoria' => $categoria]);*/
         $rCerveza = $this->getDoctrine()->getRepository(Cerveza::class);
         return $this->json(['cervezas' => $rCerveza->todasCervezas($offset)]);
 

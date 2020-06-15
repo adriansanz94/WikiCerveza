@@ -12,10 +12,6 @@ class CCervezasFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        // $product = new Product();
-        // $manager->persist($product);
-        //$cats  = new Categoria();
-        //$cats->getNombre();
         $cats = ['LAGER','ALE',"TRIGO","PORTER Y STOUT","OTRAS"];
         $desc = ["Se conoce como lagers a la categoría de cervezas elaboradas por fermentación baja.
                    por tanto, fermentada con una levadura en la parte baja del tanque, a la que luego se le deja madurar en frío, alrededor de 0º C. 
@@ -30,7 +26,6 @@ class CCervezasFixtures extends Fixture
                 "Cualquier otro tipo de cerveza que no encuentres en esta pagina"
             ];
         $oCat = [];
-        //for ($indice = 0; $indice < $cats; $indice++)
         $indice = 0;
         foreach ($cats as $cat){
             $c = new Categoria();
@@ -41,8 +36,6 @@ class CCervezasFixtures extends Fixture
             $indice = $indice + 1;
         }
 
-        //$etiq = new  Etiqueta();
-        //$etiq->getNombre();
         $etis = ['Tostada','Equilibrada',"Dulzona","Amarga","Citrico"];
         $oEtis = [];
         foreach ($etis as $eti){
