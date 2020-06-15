@@ -47,4 +47,26 @@ class CervezaRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function todasCervezas($offset) : array
+    {
+        $conn = $this->getEntityManager()->getConnection();
+
+        $sql = '
+        select cerveza.id , cerveza.nombre , cerveza.graduacion , categoria.nombre as categoria, group_concat(etiqueta.nombre separator\', \') as etiquetas
+        from cerveza 
+        left join categoria 
+        on  cerveza.categoria_id = categoria.id 
+        left join cerveza_etiqueta 
+        on cerveza_id = cerveza.id 
+        left join etiqueta 
+        on cerveza_etiqueta.etiqueta_id = etiqueta.id 
+        group by cerveza.id , cerveza.nombre , cerveza.graduacion , categoria.nombre
+        limit 3 offset '.$offset;
+        $stmt = $conn->prepare($sql);
+        //$stmt->execute(['price' => $price]);
+        //$stmt->execute(['offset' => $offset]); TODO hacer consulta preparada
+        $stmt->execute();
+        // returns an array of arrays (i.e. a raw data set)
+        return $stmt->fetchAll();
+    }
 }

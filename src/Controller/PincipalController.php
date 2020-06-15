@@ -29,12 +29,12 @@ class PincipalController extends AbstractController
     {
         $rCerveza = $this->getDoctrine()->getRepository(Cerveza::class);
         //$cerve3 php
-        $rEtiquetas = $this->getDoctrine()->getRepository(Etiqueta::class);
+        //$rEtiquetas = $this->getDoctrine()->getRepository(Etiqueta::class);
 
         //$cerve3 = $this->findBy($rCerveza,'asc',3);
         //$rEtiquetas = $this->getDoctrine()->getRepository(Etiqueta::class);
         return $this->render('publicaciones/inicio.html.twig', [
-            'cerveza' => $rCerveza->findAll()
+            'cerveza' => $rCerveza->findBy([],null,3)
             //'cerveza' => $cerve3->findAll()
             //'etiqueta' => $rEtiquetas->findAll()
         ]);
@@ -50,12 +50,12 @@ class PincipalController extends AbstractController
         ]);
     }
     /**
-     * @Route("/verMasJson", name="verMasJson")
+     * @Route("/verMasJson/{offset<\d+>}", name="verMasJson")
      */
-    public function verMasJson()
+    public function verMasJson($offset)
     {
 
-        $cerveza = $this->getDoctrine()
+        /*$cerveza = $this->getDoctrine()
             ->getRepository(Cerveza::class)
             ->createQueryBuilder('c')
             ->select('c')
@@ -72,17 +72,18 @@ class PincipalController extends AbstractController
             ->createQueryBuilder('c')
             ->select('c')
             ->getQuery()
-            ->getResult(\Doctrine\ORM\Query::HYDRATE_ARRAY);
+            ->getResult(\Doctrine\ORM\Query::HYDRATE_ARRAY);*/
 
         /*$cerveza = $this->getDoctrine()
             ->getRepository(Cerveza::class)->findAll();*/
-        $arrayTotal = array_merge($cerveza,$etiqueta,$categoria);
-        return  new JsonResponse($arrayTotal);
+       // $arrayTotal = array_merge($cerveza,$etiqueta,$categoria);
+        //return  new JsonResponse($arrayTotal);
         /*return  new JsonResponse(['cervezas' => $cerveza,
                                     'etiqueta' => $etiqueta,
                                         'categoria' => $categoria]);*/
-        /*$rCerveza = $this->getDoctrine()->getRepository(Cerveza::class);
-        return $this->json(['cervezas' => $rCerveza->findAll()]);*/
+        $rCerveza = $this->getDoctrine()->getRepository(Cerveza::class);
+        return $this->json(['cervezas' => $rCerveza->todasCervezas($offset)]);
+
 
     }
     /**
