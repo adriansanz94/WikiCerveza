@@ -54,7 +54,6 @@ class PincipalController extends AbstractController
      */
     public function verMasJson($offset)
     {
-
         /*$cerveza = $this->getDoctrine()
             ->getRepository(Cerveza::class)
             ->createQueryBuilder('c')

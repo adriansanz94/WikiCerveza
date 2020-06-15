@@ -1,7 +1,7 @@
 
 
-let datos = [];
-let uri =  'https://127.0.0.1:8000/verMasJson';
+let datos;
+let uri =  'https://127.0.0.1:8000/verMasJson/';
 
 let boton = document.getElementById('verMas');
 boton.addEventListener('click',obtenerCervezas);
@@ -9,18 +9,23 @@ boton.addEventListener('click',obtenerCervezas);
 let arraySeleccionado = [];
 
 function obtenerCervezas(){
-    peticion(uri);
-    rellenarTabla();
+    let numero = compruebaOffset();
+    let uriNueva = uri + numero;
+    peticion(uriNueva);
 }
-
+function compruebaOffset(){
+    let numero=0;
+    let tr = document.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+    numero = tr.length;
+    return numero;
+}
 function peticion(uri){
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function(){
         if(xhr.readyState === 4) {
             if(xhr.status === 200) {
-                datos = exito(xhr);
-                console.log(datos);
-
+                //datos = exito(xhr);
+                rellenarTabla(exito(xhr));
             }else{
                 error(xhr);
             }
@@ -38,19 +43,15 @@ function error(xhr){
     return `Error: ${xhr.status} (${xhr.statusText})`;
 }
 
-function rellenarTabla(){
+function rellenarTabla(cosas){
+
     let tablaBody = document.getElementsByTagName('tbody')[0];
-
-    //let tdCategoria = document.createElement('td');
-    //let tdEtiqueta = document.createElement('td');
-
-    //tdNombre.innerHTML = 'jack sparrow';
-
-    //trNueva.appendChild(tdNombre);
-    //tablaBody.appendChild(trNueva);
+    datos = cosas.cervezas;
 
     //console.log(tablaBody);
     console.log("estoy fuera del for");
+    console.log(datos);
+    console.log(cosas);
     console.log(datos.length);
 
     for(let indice = 0; indice < datos.length; indice ++){
@@ -64,9 +65,8 @@ function rellenarTabla(){
         console.log(datos[indice]);
         tdNombre.innerHTML = datos[indice].nombre;
         tdGraduacion.innerHTML = datos[indice].graduacion;
-        tdCategoria.innerHTML = datos[indice].graduacion;
-        tdEtiquetas.innerHTML = datos[indice].graduacion;
-
+        tdCategoria.innerHTML = datos[indice].categoria;
+        tdEtiquetas.innerHTML = datos[indice].etiquetas;
 
         trNueva.appendChild(tdNombre);
         trNueva.appendChild(tdGraduacion);
