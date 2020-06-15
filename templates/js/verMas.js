@@ -57,14 +57,21 @@ function rellenarTabla(){
         let trNueva = document.createElement('tr');
         let tdNombre = document.createElement('td');
         let tdGraduacion = document.createElement('td');
+        let tdCategoria = document.createElement('td');
+        let tdEtiquetas = document.createElement('td');
 
         console.log("estoy dentro del for");
         console.log(datos[indice]);
         tdNombre.innerHTML = datos[indice].nombre;
         tdGraduacion.innerHTML = datos[indice].graduacion;
+        tdCategoria.innerHTML = datos[indice].graduacion;
+        tdEtiquetas.innerHTML = datos[indice].graduacion;
+
 
         trNueva.appendChild(tdNombre);
         trNueva.appendChild(tdGraduacion);
+        trNueva.appendChild(tdCategoria);
+        trNueva.appendChild(tdEtiquetas);
 
         tablaBody.appendChild(trNueva);
     }

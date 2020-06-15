@@ -76,10 +76,118 @@ class CCervezasFixtures extends Fixture
         $cev2->addEtiquetum($oEtis["Amarga"]);
         $cev2->addEtiquetum($oEtis["Dulzona"]);
 
+        $cev3 = new Cerveza();
+        $cev3->setNombre("Amstel");
+        $cev3->setGraduacion(7,2);
+        $cev3->setCategoria($oCats["OTRAS"]);
+        $cev3->addEtiquetum($oEtis["Tostada"]);
+        $cev3->addEtiquetum($oEtis["Equilibrada"]);
+        $cev3->addEtiquetum($oEtis["Dulzona"]);
+
+        $cev4 = new Cerveza();
+        $cev4->setNombre("Mahou Clasica");
+        $cev4->setGraduacion(6,4);
+        $cev4->setCategoria($oCats["LAGER"]);
+        $cev4->addEtiquetum($oEtis["Tostada"]);
+        $cev4->addEtiquetum($oEtis["Amarga"]);
+        $cev4->addEtiquetum($oEtis["Dulzona"]);
+
+        $cev5 = new Cerveza();
+        $cev5->setNombre("Mixta");
+        $cev5->setGraduacion(5);
+        $cev5->setCategoria($oCats["TRIGO"]);
+        $cev5->addEtiquetum($oEtis["Citrico"]);
+        $cev5->addEtiquetum($oEtis["Amarga"]);
+        $cev5->addEtiquetum($oEtis["Dulzona"]);
+
+        $cev6 = new Cerveza();
+        $cev6->setNombre("Sandy");
+        $cev6->setGraduacion(7,2);
+        $cev6->setCategoria($oCats["OTRAS"]);
+        $cev6->addEtiquetum($oEtis["Tostada"]);
+        $cev6->addEtiquetum($oEtis["Equilibrada"]);
+        $cev6->addEtiquetum($oEtis["Dulzona"]);
+
+        $cev7 = new Cerveza();
+        $cev7->setNombre("Cheapis");
+        $cev7->setGraduacion(6,4);
+        $cev7->setCategoria($oCats["LAGER"]);
+        $cev7->addEtiquetum($oEtis["Tostada"]);
+        $cev7->addEtiquetum($oEtis["Amarga"]);
+        $cev7->addEtiquetum($oEtis["Dulzona"]);
+
+        $cev8 = new Cerveza();
+        $cev8->setNombre("Ladrón de sidras");
+        $cev8->setGraduacion(5);
+        $cev8->setCategoria($oCats["TRIGO"]);
+        $cev8->addEtiquetum($oEtis["Citrico"]);
+        $cev8->addEtiquetum($oEtis["Amarga"]);
+        $cev8->addEtiquetum($oEtis["Dulzona"]);
+
+        $cev9 = new Cerveza();
+        $cev9->setNombre("Voll Damm II");
+        $cev9->setGraduacion(7,2);
+        $cev9->setCategoria($oCats["OTRAS"]);
+        $cev9->addEtiquetum($oEtis["Tostada"]);
+        $cev9->addEtiquetum($oEtis["Equilibrada"]);
+        $cev9->addEtiquetum($oEtis["Dulzona"]);
+
+        $cev10 = new Cerveza();
+        $cev10->setNombre("Bayern Beer");
+        $cev10->setGraduacion(6,4);
+        $cev10->setCategoria($oCats["LAGER"]);
+        $cev10->addEtiquetum($oEtis["Tostada"]);
+        $cev10->addEtiquetum($oEtis["Amarga"]);
+        $cev10->addEtiquetum($oEtis["Dulzona"]);
+
+        $cev11 = new Cerveza();
+        $cev11->setNombre("Corona");
+        $cev11->setGraduacion(5);
+        $cev11->setCategoria($oCats["TRIGO"]);
+        $cev11->addEtiquetum($oEtis["Citrico"]);
+        $cev11->addEtiquetum($oEtis["Amarga"]);
+        $cev11->addEtiquetum($oEtis["Dulzona"]);
+
+        $cev12 = new Cerveza();
+        $cev12->setNombre("San Miguel");
+        $cev12->setGraduacion(7,2);
+        $cev12->setCategoria($oCats["OTRAS"]);
+        $cev12->addEtiquetum($oEtis["Tostada"]);
+        $cev12->addEtiquetum($oEtis["Equilibrada"]);
+        $cev12->addEtiquetum($oEtis["Dulzona"]);
+
+        $cev13 = new Cerveza();
+        $cev13->setNombre("Pilsener");
+        $cev13->setGraduacion(6,4);
+        $cev13->setCategoria($oCats["LAGER"]);
+        $cev13->addEtiquetum($oEtis["Tostada"]);
+        $cev13->addEtiquetum($oEtis["Amarga"]);
+        $cev13->addEtiquetum($oEtis["Dulzona"]);
+
+        $cev14 = new Cerveza();
+        $cev14->setNombre("Cruzcampo");
+        $cev14->setGraduacion(5);
+        $cev14->setCategoria($oCats["TRIGO"]);
+        $cev14->addEtiquetum($oEtis["Citrico"]);
+        $cev14->addEtiquetum($oEtis["Amarga"]);
+        $cev14->addEtiquetum($oEtis["Dulzona"]);
+
 
         $manager->persist($cev);
         $manager->persist($cev1);
         $manager->persist($cev2);
+        $manager->persist($cev3);
+        $manager->persist($cev4);
+        $manager->persist($cev5);
+        $manager->persist($cev6);
+        $manager->persist($cev7);
+        $manager->persist($cev8);
+        $manager->persist($cev9);
+        $manager->persist($cev10);
+        $manager->persist($cev11);
+        $manager->persist($cev12);
+        $manager->persist($cev13);
+        $manager->persist($cev14);
 
         $manager->flush();
     }
