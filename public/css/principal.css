@@ -62,7 +62,7 @@ body > p > a{
     margin-top: 2em;
     background-color: navajowhite;
     border: 1px solid black;
-    width: 40%;
+    width: 60%;
     height: 70%;
 }
 
@@ -71,8 +71,20 @@ body > p > a{
     text-align: center;
 }
 
-body > form{
+/*dar color a la tabla */
+.tabla{
+    background-color: #ffc107;
+    color:black;
     text-align: center;
-    color:red;
 }
 
+body > table  thead th{
+    background: #353b41;
+    color:white;
+}
+
+body > table a{
+    color:black;
+    text-transform: capitalize;
+    font-weight: bold;
+}

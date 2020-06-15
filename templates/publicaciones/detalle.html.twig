@@ -12,10 +12,12 @@
         <p>{{  cerveza.getGraduacion}}</p>
         <h3>Categoria</h3>
         <p>{{ cerveza.getCategoria}}</p>
+        <h3>Descripción</h3>
+        <p>{{ categoria.getDescripcion }}</p>
+
         <h3>Etiquetas</h3>
         {% for cerve in cerveza.getEtiqueta %}
             <p>{{ cerve }}</p>
         {% endfor %}
     </div>
 {% endblock %}
-

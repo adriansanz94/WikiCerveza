@@ -30,8 +30,10 @@ class PincipalController extends AbstractController
      */
     public function detalle(Cerveza $id)
     {
+        $rCategoria = $this->getDoctrine()->getRepository(Categoria::class);
         return $this->render('publicaciones/detalle.html.twig',[
-            'cerveza' => $id
+            'cerveza' => $id,
+            'categoria' => $rCategoria->find($id)
         ]);
     }
     /**
